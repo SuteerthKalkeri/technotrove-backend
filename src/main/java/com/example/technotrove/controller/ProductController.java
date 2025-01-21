@@ -20,9 +20,16 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+   // @GetMapping("/{id}")
+   // public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+   //     return productService.getProductById(id)
+    //            .map(ResponseEntity::ok)
+   //             .orElse(ResponseEntity.notFound().build());
+   // }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        return productService.getProductById(id)
+    public ResponseEntity<Product> getProductDetails(@PathVariable Long id) {
+        return productService.getProductDetails(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
