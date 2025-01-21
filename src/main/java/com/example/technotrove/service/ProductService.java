@@ -18,9 +18,9 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-   // public Optional<Product> getProductById(Long id) {
+    // public Optional<Product> getProductById(Long id) {
     //    return productRepository.findById(id);
-   // }
+    // }
 
     public Optional<Product> getProductDetails(Long id) {
         return productRepository.findByIdWithVariants(id);

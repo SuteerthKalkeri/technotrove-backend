@@ -3,7 +3,6 @@ package com.example.technotrove.model;
 import jakarta.persistence.*;
 import java.util.List;
 
-
 @Entity
 public class Product {
 
