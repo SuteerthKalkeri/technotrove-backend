@@ -2,11 +2,13 @@ package com.example.technotrove.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-public class ProductVariant {
+public class ProductVariant implements Serializable {
 
     @Id
     private String sku;
@@ -23,7 +25,7 @@ public class ProductVariant {
     @Column(nullable = false)
     private String variantImage; // Thumbnail for this variant
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "variant_images", joinColumns = @JoinColumn(name = "variant_sku"))
     @Column(name = "image_url")
     private List<String> images; // Images for the carousel

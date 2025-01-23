@@ -2,6 +2,7 @@ package com.example.technotrove.service;
 
 import com.example.technotrove.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.example.technotrove.repository.ProductRepository;
 
@@ -13,7 +14,6 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
