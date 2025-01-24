@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import com.example.technotrove.repository.CategoryRepository;
 
 import java.util.List;
-    
+
 @Service
 public class CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
+    @Cacheable("categories")
     public List<Category> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();
         System.out.println("Fetched Categories: " + categories); // Debug log
