@@ -70,6 +70,10 @@ public class ProductService {
         return productDTO;
     }
 
+
+
+
+
     private List<String> listAsString(List<String> images) {
         try {
             return Collections.singletonList(objectMapper.writeValueAsString(images));
