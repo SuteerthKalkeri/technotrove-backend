@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class ProductVariant implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @Id
     private String sku;
 
@@ -25,7 +25,7 @@ public class ProductVariant implements Serializable {
     @Column(nullable = false)
     private String variantImage; // Thumbnail for this variant
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection()
     @CollectionTable(name = "variant_images", joinColumns = @JoinColumn(name = "variant_sku"))
     @Column(name = "image_url")
     private List<String> images; // Images for the carousel

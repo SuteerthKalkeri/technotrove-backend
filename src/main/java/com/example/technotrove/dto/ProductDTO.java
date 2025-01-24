@@ -1,38 +1,27 @@
-package com.example.technotrove.model;
+package com.example.technotrove.dto;
 
+import com.example.technotrove.model.Category;
+import com.example.technotrove.model.ProductVariant;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-public class Product implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductDTO implements Serializable {
     private Long id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(length = 1000)
     private String description;
-
-    @Column(nullable = false)
     private String primaryImage;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+    private List<ProductVariantDTO> productVariants;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<ProductVariant> productVariants;
-
-    // Default constructor
-    public Product() {
-    }
-
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -73,11 +62,11 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public List<ProductVariant> getProductVariants() {
+    public List<ProductVariantDTO> getProductVariants() {
         return productVariants;
     }
 
-    public void setProductVariants(List<ProductVariant> productVariants) {
+    public void setProductVariants(List<ProductVariantDTO> productVariants) {
         this.productVariants = productVariants;
     }
 }

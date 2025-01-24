@@ -1,6 +1,8 @@
 package com.example.technotrove.controller;
 
+import com.example.technotrove.dto.ProductDTO;
 import com.example.technotrove.model.Product;
+import com.example.technotrove.service.RandomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +17,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private RandomService randomService;
+
     @GetMapping
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public List<ProductDTO> getAllProducts() {
+        return randomService.getAllProducts();
     }
 
    // @GetMapping("/{id}")
@@ -28,7 +33,7 @@ public class ProductController {
    // }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductDetails(@PathVariable Long id) {
+    public ResponseEntity<ProductDTO> getProductDetails(@PathVariable Long id) {
         return productService.getProductDetails(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

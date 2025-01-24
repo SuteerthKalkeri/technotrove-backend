@@ -1,11 +1,11 @@
 package com.example.technotrove.dto;
 
-import com.example.technotrove.model.ProductVariant;
-
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ProductVariantDTO {
+public class ProductVariantDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String sku;
     private String name;
@@ -14,15 +14,8 @@ public class ProductVariantDTO {
     private String variantImage;
     private List<String> images;
 
-    // Constructor to map ProductVariant to ProductVariantDTO
-    public ProductVariantDTO(ProductVariant variant) {
-        this.sku = variant.getSku();
-        this.name = variant.getName();
-        this.price = variant.getPrice();
-        this.quantity = variant.getQuantity();
-        this.variantImage = variant.getVariantImage();
-        this.images = variant.getImages(); // Initializes images
-    }
+    // Default Constructor
+    public ProductVariantDTO() {}
 
     // Getters and Setters
     public String getSku() {
