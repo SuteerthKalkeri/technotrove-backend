@@ -22,7 +22,7 @@ public class ProductController {
 
     @GetMapping
     public List<ProductDTO> getAllProducts() {
-        return randomService.getAllProducts();
+        return productService.getAllProducts();
     }
 
    // @GetMapping("/{id}")
@@ -32,15 +32,15 @@ public class ProductController {
    //             .orElse(ResponseEntity.notFound().build());
    // }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductDetails(@PathVariable Long id) {
+    @GetMapping(params = "id")
+    public ResponseEntity<ProductDTO> getProductDetails(@RequestParam Long id) {
         return productService.getProductDetails(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
-    }
+//    @PostMapping
+//    public Product createProduct(@RequestBody Product product) {
+//        return productService.createProduct(product);
+//    }
 }

@@ -20,9 +20,9 @@ public class CategoryService {
         return categories;
     }
 
-    public Category createCategory(Category category) {
-        return categoryRepository.save(category);
-    }
+//    public Category createCategory(Category category) {
+//        return categoryRepository.save(category);
+//    }
 }
 
 

@@ -22,11 +22,11 @@ public class CategoryController {
         return categories;
     }
 
-    @PostMapping
-    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
-        Category createdCategory = categoryService.createCategory(category);
-        return ResponseEntity.ok(createdCategory);
-    }
+//    @PostMapping
+//    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+//        Category createdCategory = categoryService.createCategory(category);
+//        return ResponseEntity.ok(createdCategory);
+//    }
 
 }
 

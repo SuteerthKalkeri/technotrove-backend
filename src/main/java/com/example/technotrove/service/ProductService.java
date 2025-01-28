@@ -42,9 +42,9 @@ public class ProductService {
         return productOptional.map(this::convertToProductDTO);
     }
 
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
-    }
+//    public Product createProduct(Product product) {
+//        return productRepository.save(product);
+//    }
 
     private ProductDTO convertToProductDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
